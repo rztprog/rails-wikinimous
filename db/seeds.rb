@@ -46,5 +46,6 @@ loop_n.to_i.times do
   article.save!
 end
 
+puts "=============================="
 puts "Congrats, #{Article.count} post(s) was created!"
 puts "=============================="
