@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    ace-helper (0.0.2)
     actioncable (6.1.5)
       actionpack (= 6.1.5)
       activesupport (= 6.1.5)
@@ -210,6 +211,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  ace-helper
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)

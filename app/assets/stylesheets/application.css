@@ -25,3 +25,9 @@
 .sticky-right{
   float: right;
 }
+
+/* Ace editor */
+#editor { 
+  width: 100%;
+  height: 200px;
+}

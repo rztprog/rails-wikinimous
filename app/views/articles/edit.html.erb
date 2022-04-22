@@ -3,10 +3,12 @@
 
   <%= simple_form_for(@article) do |f| %>
     <%= f.input :title %>
-    <%= f.input :content %>
+    <div id="editor">
+      <%= f.text_area :content %>
+    </div>
 
   <div>
-      <%= f.submit class: "btn btn-success mt-2"%>
+    <%= f.submit class: "btn btn-success mt-2"%>
     <% end %>
 
     <%= link_to root_path, class: "btn btn-secondary mt-2" do %>
@@ -14,5 +16,14 @@
     <% end %>
   </div>
 
+      
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.14/ace.js" integrity="sha512-6ts6Fu561/yzWvD6uwQp3XVYwiWNpWnZ0hdeQrETqtnQiGjTfOS06W76aUDnq51hl1SxXtJaqy7IsZ3oP/uZEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+      var editor = ace.edit("editor");
+      editor.setTheme("ace/theme/solarized_dark");
+      editor.session.setMode("ace/mode/markdown");
+
+  </script>
 </div>
+
 
