@@ -7,16 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require "faker"
-
 # Run rails db:setup
-
-puts "
-▄▄▄  ·▄▄▄▄•▄▄▄▄▄▄ ▄▄▄·▄▄▄         ▄▄ • 
-▀▄ █·▪▀·.█▌▀•██ ▀▐█ ▄█▀▄ █· ▄█▀▄ ▐█ ▀ ▪
-▐▀▀▄ ▄█▀▀▀•  ▐█.▪ ██▀·▐▀▀▄ ▐█▌.▐▌▄█ ▀█▄
-▐█•█▌█▌▪▄█▀  ▐█▌·▐█▪·•▐█•█▌▐█▌.▐▌▐█▄▪▐█
-.▀  ▀·▀▀▀ •  ▀▀▀ .▀   .▀  ▀ ▀█▄▀▪·▀▀▀▀ 
-"
 
 puts "
 ░▒█░░▒█░░▀░░█░▄░░▀░░█▀▀▄░░▀░░█▀▄▀█░▄▀▀▄░█░▒█░█▀▀
@@ -26,18 +17,19 @@ puts "
 
 # Cleaning all DB model
 puts "=============================="
+count = Article.count()
+puts "Found #{count} Article(s) in DB"
 puts "Cleaning Article database..."
 Article.destroy_all
-puts "Done"
 puts "=============================="
 
-# Create users
-puts "Creating some post..."
-puts "How much posts you want ?"
+# Create loop_n number of article(s)
+puts "How much article(s) you want ?"
 puts "> "
 loop_n = STDIN.gets.chomp
 
-puts "Creating #{loop_n} fake tasks, please wait..."
+# Create fake article
+puts "Creating #{loop_n} fake articles, please wait..."
 loop_n.to_i.times do
   article = Article.new(
     title:    "#{Faker::Verb.base.capitalize} #{Faker::ProgrammingLanguage.name}",
@@ -46,6 +38,7 @@ loop_n.to_i.times do
   article.save!
 end
 
+# Done
 puts "=============================="
-puts "Congrats, #{Article.count} post(s) was created!"
+puts "Congrats, #{Article.count} article(s) was created!"
 puts "=============================="

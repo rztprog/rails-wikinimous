@@ -6,13 +6,27 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <nav class="navbar sticky-top navbar-light bg-light">
+      <div class="container-fluid">
+        <%= link_to "Wikinimous", root_path, class: "navbar-brand" %>
+        <%# Delete all button %>
+        <% if false %>
+              <%= link_to delete_all_path, class: "btn btn-danger", 
+              method: :delete,
+              data: { confirm: "Are you sure you want to delete all?" } do %>
+            <i class="far fa-trash-alt"> Delete all</i>
+            <% end %>
+        <% end %>
+        <%= link_to "New Article", new_article_path, class: "navbar-link" %>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
